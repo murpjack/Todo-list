@@ -10,14 +10,16 @@ export default function TodoList() {
   useEffect(() => {
     const TODO_LIST = "TODO_LIST";
     const listString = list.reduce((acc, curr, index) => {
-      console.log(curr);
+      console.log(index);
       if (index === 0) {
-        return acc + `[{name:"${curr.name}", isComplete:${curr.isComplete} }`;
+        return (
+          acc + `[{"name":"${curr.name}","isComplete":${curr.isComplete}},`
+        );
       } else if (index === list.length - 1) {
-        return acc + `{name:"${curr.name}", isComplete:${curr.isComplete} }]`;
+        return acc + `{"name":"${curr.name}","isComplete":${curr.isComplete}}]`;
       } else {
         // separate list objects with a comma
-        return acc + `, { name:"${curr.name}", isComplete:${curr.isComplete} }`;
+        return acc + `{"name":"${curr.name}","isComplete":${curr.isComplete}},`;
       }
     }, "");
     console.log(listString);

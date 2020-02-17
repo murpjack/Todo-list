@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Future from "fluture/index.js";
 import { removeItem } from "../actions/index";
 
-export const ButtonRemoveItem = ({ currentIdx, current }) => {
+export const ButtonRemoveItem = ({ currentIdx }) => {
   const { state, dispatch } = useContext(OrganiserContext);
   const { list } = state;
 
