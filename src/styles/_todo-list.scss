@@ -1,0 +1,123 @@
+@import "./variables";
+
+.todo {
+  margin: 0 auto;
+  max-width: 340px;
+  text-align: left;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
+  %item-input {
+    background-color: $color-bg;
+    color: $color-font;
+    letter-spacing: 1px;
+    outline: none;
+    border: none;
+  }
+
+  %item-button {
+    background-color: $color-bg;
+    border: none;
+    cursor: pointer;
+    float: right;
+    outline: none;
+    max-width: 30px;
+    width: 10%;
+    font-size: 18px;
+    line-height: 40px;
+    font-weight: 800;
+  }
+
+  .item {
+    border-bottom: 1px solid $color-item-border;
+    height: 45px;
+    line-height: 45px;
+    list-style: none;
+    text-align: left;
+    width: 100%;
+
+    &__button,
+    &__name,
+    &__toggle {
+      box-sizing: border-box;
+      display: inline-block;
+      font-size: 16px;
+      height: calc(100% - 2px);
+    }
+
+    &__button {
+      @extend %item-button;
+      color: $color-font-button-remove;
+    }
+
+    &__name {
+      @extend %item-input;
+      padding-left: 5px;
+      width: 75%;
+    }
+
+    &__toggle {
+      cursor: pointer;
+      height: 0;
+      position: relative;
+      width: 10%;
+      max-width: 35px;
+      // Checkbox background
+      &:before {
+        border: 1px solid $color-item-border;
+        border-radius: 999px;
+        content: "";
+        display: block;
+        height: 25px;
+        position: absolute;
+        top: -19px;
+        width: 25px;
+        left: 2px;
+      }
+      // Checkbox icon --hidden
+      &:after {
+        border: solid $color-toggle-icon;
+        border-width: 0 3px 3px 0;
+        content: "";
+        display: none;
+        height: 12px;
+        position: absolute;
+        top: -14px;
+        transform: rotate(45deg);
+        width: 4px;
+        left: 12px;
+      }
+
+      &:checked {
+        &:before {
+          background-color: $color-toggle-bg;
+          border: 1px solid $color-toggle-bg;
+          display: block;
+        }
+
+        &:after {
+          display: block;
+        }
+      }
+    }
+  }
+  // Add items to list
+  &__input {
+    @extend %item-input;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    padding-left: 48px;
+    width: 90%;
+  }
+
+  &__button {
+    @extend %item-button;
+    color: $color-font-button-add;
+  }
+}

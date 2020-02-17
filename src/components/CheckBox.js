@@ -25,7 +25,7 @@ export const CheckBox = ({ currentIdx, current }) => {
   return (
     <input
       type="checkbox"
-      className={isComplete ? "todo__item item item--complete" : "todo__item"}
+      className={"item__toggle " + (isComplete ? "item__toggle--complete" : "")}
       onChange={toggleCompleteListItem}
       checked={isComplete}
     />

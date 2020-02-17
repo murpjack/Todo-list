@@ -28,6 +28,7 @@ export const ItemName = ({ currentIdx, current }) => {
   }
   return (
     <input
+    className="item__name"
       id="inputTodo"
       defaultValue={current.name}
       type="text"

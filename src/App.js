@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import "./App.css";
+import "./styles/App.scss";
 import { OrganiserContext } from "./context";
 
 import initialState from "./initialState";
@@ -13,11 +13,11 @@ export default function App() {
 
   return (
     <OrganiserContext.Provider value={{ state, dispatch }}>
-      <>
+      <div className="todo">
         <header className="App-header">WHAT TODO</header>
         <TodoList />
         <Input />
-      </>
+      </div>
     </OrganiserContext.Provider>
   );
 }

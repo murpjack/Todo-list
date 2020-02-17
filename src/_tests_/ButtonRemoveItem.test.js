@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import ButtonRemoveItem from "./ButtonRemoveItem";
+import ButtonRemoveItem from "../components/ButtonRemoveItem";
 
 describe("Test Button component", () => {
   it("Test click event", () => {

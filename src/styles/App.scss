@@ -1,0 +1,21 @@
+@import "./variables";
+@import "./todo-list";
+
+.App {
+  background-color: $color-bg;
+  box-sizing: border-box;
+  color: $color-font;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.App-header {
+  font-size: calc(15px + 2vmin);
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin: 0 0 30px;
+text-align: center;
+}

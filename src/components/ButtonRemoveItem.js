@@ -20,8 +20,11 @@ export const ButtonRemoveItem = ({ currentIdx, current }) => {
   }
 
   return (
-    <button className="todo__item" onClick={removeItemClick}>
-      {current.name}
+    <button
+      className="item__button item__button--remove"
+      onClick={removeItemClick}
+    >
+      x
     </button>
   );
 };
