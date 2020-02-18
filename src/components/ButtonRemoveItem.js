@@ -4,19 +4,13 @@ import PropTypes from "prop-types";
 import Future from "fluture/index.js";
 import { removeItem } from "../actions/index";
 
-export const ButtonRemoveItem = ({ currentIdx }) => {
+export const ButtonRemoveItem = ({ current }) => {
   const { state, dispatch } = useContext(OrganiserContext);
   const { list } = state;
 
   function removeItemClick() {
-    const updatedList = list.filter((item, idx) => {
-      if (idx !== currentIdx) return item;
-      return false;
-    });
-
-    Future.of(updatedList)
-      .map(removeItem)
-      .value(dispatch);
+      const removeCurrent = removeItem(current);
+      dispatch(removeCurrent);
   }
 
   return (
@@ -29,7 +23,6 @@ export const ButtonRemoveItem = ({ currentIdx }) => {
   );
 };
 ButtonRemoveItem.propTypes = {
-  currentIdx: PropTypes.number.isRequired,
   current: PropTypes.object.isRequired
 };
 

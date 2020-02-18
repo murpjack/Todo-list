@@ -1,19 +1,20 @@
 import React, { useReducer } from "react";
-import "./App.css";
-import { OrganiserContext } from "./context";
-
-import initialState from "../initialState";
-import reducer from "../reducers/index";
-
+import renderer from 'react-test-renderer';
+// import { OrganiserContext } from "./context";
 import App from "../App";
-import TodoList from "../components/TodoList";
-import Input from "../components/Input";
 
-const TestHookReducer = () => {
-  const [reducerState, dispatch] = useReducer(Reducer, initialState)
+// import initialState from "../initialState";
+// import reducer from "../reducers/index";
+
+// const TestHookReducer = () => {
+//   const [reducerState, dispatch] = useReducer(Reducer, initialState)
+
 
 describe("App renders", () => {
   it("TodoList renders successfully", () => {
-    
+    const component = renderer.create(<App />);
+    let tree = component.toJSON();
+
+    expect(tree).toMatchSnapshot();
   });
 });

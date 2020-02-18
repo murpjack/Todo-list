@@ -10,6 +10,7 @@ describe("Test Button component", () => {
     const button = shallow(<ButtonRemoveItem currentIdx={id} current={item} />);
     button.find("button").simulate("click");
 
+
     expect(true).toEqual(true);
   });
 });

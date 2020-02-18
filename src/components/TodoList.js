@@ -13,25 +13,28 @@ export default function TodoList() {
       console.log(index);
       if (index === 0) {
         return (
-          acc + `[{"name":"${curr.name}","isComplete":${curr.isComplete}},`
+          acc + `[{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}},`
         );
       } else if (index === list.length - 1) {
-        return acc + `{"name":"${curr.name}","isComplete":${curr.isComplete}}]`;
+        return acc + `{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}}]`;
       } else {
         // separate list objects with a comma
-        return acc + `{"name":"${curr.name}","isComplete":${curr.isComplete}},`;
+        return acc + `{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}},`;
       }
     }, "");
+
     console.log(listString);
     console.log(JSON.parse(listString));
     window.localStorage.setItem(TODO_LIST, listString);
   }, [list]);
 
+  const listItems = state.list.map((todo, idx) => (
+    <TodoItem key={idx} id={idx} item={todo} />
+  ));
+
   return (
     <ul className="todo__list">
-      {state.list.map((todo, idx) => (
-        <TodoItem key={idx} id={idx} item={todo} />
-      ))}
+      {listItems}
     </ul>
   );
 }

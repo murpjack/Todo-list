@@ -4,22 +4,14 @@ import PropTypes from "prop-types";
 import Future from "fluture/index.js";
 import { toggleItemComplete } from "../actions/index";
 
-export const CheckBox = ({ currentIdx, current }) => {
+export const CheckBox = ({ current }) => {
   const { state, dispatch } = useContext(OrganiserContext);
   const { list } = state;
   const { isComplete } = current;
 
   function toggleCompleteListItem() {
-    const updatedList = list.map((item, idx) => {
-      if (idx === currentIdx) {
-        return { ...item, isComplete: !item.isComplete };
-      }
-      return item;
-    });
-    console.log("checked", updatedList);
-    Future.of(updatedList)
-      .map(toggleItemComplete)
-      .value(dispatch);
+      const toggled = toggleItemComplete(current);
+      dispatch(toggled);
   }
 
   return (
@@ -32,7 +24,6 @@ export const CheckBox = ({ currentIdx, current }) => {
   );
 };
 CheckBox.propTypes = {
-  currentIdx: PropTypes.number.isRequired,
   current: PropTypes.object.isRequired
 };
 

@@ -7,28 +7,46 @@ import {
 
 import initialState from "../initialState";
 
-export default function reducer(state = initialState, { type, payload }) {
+export default function reducer(state = initialState, {
+  type,
+  payload
+}) {
   switch (type) {
+
     case ADD_ITEM:
       return {
         ...state,
-        list: payload.list
+        list: [...state.list, payload.item]
       };
+
     case REMOVE_ITEM:
+      const list = state.list.filter(todo => todo.id !== payload.id);
       return {
-        ...state,
-        list: payload.list
+        ...state, list
       };
+
     case EDIT_ITEM:
       return {
         ...state,
-        list: payload.list
+        list: state.list.map(todo =>
+          todo.id === payload.id ? {
+            ...todo,
+            name: payload.name
+          } : todo
+        )
       };
+
     case TOGGLE_ITEM_COMPLETE:
       return {
         ...state,
-        list: payload.list
+        list: state.list.map(todo =>
+          todo.id === payload.id ? {
+            ...todo,
+            isComplete: !todo.isComplete
+          } : todo
+        )
       };
+
     default:
       return state;
   }

@@ -4,28 +4,20 @@ import PropTypes from "prop-types";
 import Future from "fluture/index.js";
 
 import { editItem } from "../actions/index";
-export const ItemName = ({ currentIdx, current }) => {
+export const ItemName = ({ current }) => {
   const { state, dispatch } = useContext(OrganiserContext);
   const { list } = state;
-  console.log(1, list[currentIdx].name, currentIdx, list);
-  // console.log(45, list[currentIdx]);
 
   function updateListItemName(e) {
-    const currentItemName = e.target.value;
+    const target = e.target;
     if (e.key === "Enter" || e.which === 13) {
-      const updatedList = list.map((item, idx) => {
-        if (idx === currentIdx) {
-          return { ...item, name: currentItemName };
-        }
-        return item;
-      });
-      console.log("named", updatedList);
+      const newItem = { ...current, name: target.value };
 
-      Future.of(updatedList)
-        .map(editItem)
-        .value(dispatch);
+      const updated = editItem(newItem);
+      dispatch(updated);
     }
   }
+
   return (
     <input
     className="item__name"
@@ -38,7 +30,6 @@ export const ItemName = ({ currentIdx, current }) => {
 };
 
 ItemName.propTypes = {
-  currentIdx: PropTypes.number.isRequired,
   current: PropTypes.object.isRequired
 };
 

@@ -5,17 +5,16 @@ import CheckBox from "./CheckBox";
 import ItemName from "./ItemName";
 import ButtonRemoveItem from "./ButtonRemoveItem";
 
-export default function TodoItem({ id, item }) {
+export default function TodoItem({ item }) {
   return (
     <li className="todo__item item">
-      <CheckBox currentIdx={id} current={item} />
-      <ItemName currentIdx={id} current={item} />
-      <ButtonRemoveItem currentIdx={id} current={item} />
+      <CheckBox current={item} />
+      <ItemName current={item} />
+      <ButtonRemoveItem current={item} />
     </li>
   );
 }
 
 TodoItem.propTypes = {
-  id: PropTypes.number.isRequired,
   item: PropTypes.object.isRequired
 };
