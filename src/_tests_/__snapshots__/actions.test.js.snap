@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ADD_ITEM payload output is correct 1`] = `
+Object {
+  "list": Array [
+    Object {
+      "id": 0,
+      "isComplete": true,
+      "name": "Write TODO list",
+    },
+    Object {
+      "id": 1,
+      "isComplete": false,
+      "name": "看电影",
+    },
+    Object {
+      "id": 2,
+      "isComplete": false,
+      "name": "Make something",
+    },
+    undefined,
+  ],
+}
+`;
+
+exports[`EDIT_ITEM payload output is correct 1`] = `
+Object {
+  "list": Array [
+    Object {
+      "id": 0,
+      "isComplete": true,
+      "name": "Write TODO list",
+    },
+    Object {
+      "id": 1,
+      "isComplete": false,
+      "name": "看电影",
+    },
+    Object {
+      "id": 2,
+      "isComplete": false,
+      "name": "Make something",
+    },
+  ],
+}
+`;
+
+exports[`REMOVE_ITEM payload output is correct 1`] = `
+Object {
+  "list": Array [
+    Object {
+      "id": 0,
+      "isComplete": true,
+      "name": "Write TODO list",
+    },
+    Object {
+      "id": 1,
+      "isComplete": false,
+      "name": "看电影",
+    },
+    Object {
+      "id": 2,
+      "isComplete": false,
+      "name": "Make something",
+    },
+  ],
+}
+`;
+
+exports[`TOGGLE_ITEM_COMPLETE payload output is correct 1`] = `
+Object {
+  "list": Array [
+    Object {
+      "id": 0,
+      "isComplete": true,
+      "name": "Write TODO list",
+    },
+    Object {
+      "id": 1,
+      "isComplete": false,
+      "name": "看电影",
+    },
+    Object {
+      "id": 2,
+      "isComplete": false,
+      "name": "Make something",
+    },
+  ],
+}
+`;

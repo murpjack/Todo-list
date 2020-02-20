@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders TodoList renders successfully 1`] = `
+exports[`App renders successfully 1`] = `
 <div
   className="todo"
 >
@@ -31,6 +31,7 @@ exports[`App renders TodoList renders successfully 1`] = `
       <button
         className="item__button item__button--remove"
         onClick={[Function]}
+        type="button"
       >
         x
       </button>
@@ -54,6 +55,7 @@ exports[`App renders TodoList renders successfully 1`] = `
       <button
         className="item__button item__button--remove"
         onClick={[Function]}
+        type="button"
       >
         x
       </button>
@@ -77,6 +79,7 @@ exports[`App renders TodoList renders successfully 1`] = `
       <button
         className="item__button item__button--remove"
         onClick={[Function]}
+        type="button"
       >
         x
       </button>
@@ -91,12 +94,7 @@ exports[`App renders TodoList renders successfully 1`] = `
       placeholder="Add another task"
       type="text"
     />
-    <button
-      className="todo__button item__button--add"
-      onClick={[Function]}
-    >
-      +
-    </button>
+     
   </div>
 </div>
 `;

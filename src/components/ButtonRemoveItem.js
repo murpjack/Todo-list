@@ -5,16 +5,16 @@ import Future from "fluture/index.js";
 import { removeItem } from "../actions/index";
 
 export const ButtonRemoveItem = ({ current }) => {
-  const { state, dispatch } = useContext(OrganiserContext);
-  const { list } = state;
+  const { dispatch } = useContext(OrganiserContext);
 
-  function removeItemClick() {
-      const removeCurrent = removeItem(current);
-      dispatch(removeCurrent);
-  }
+  const removeItemClick = () => {
+      // const removeCurrent = removeItem(current);
+      // dispatch(removeCurrent);
+  };
 
   return (
     <button
+    type="button"
       className="item__button item__button--remove"
       onClick={removeItemClick}
     >
