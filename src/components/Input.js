@@ -24,7 +24,7 @@ export default function Input() {
       <input
         className="todo__input"
         id="inputTodo"
-        placeholder="Add another task"
+        placeholder="+ Add another task"
         type="text"
         maxLength="70"
         onKeyDown={submitNewItem}

@@ -19,7 +19,7 @@ export default function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         list: state.list.filter(todo => {
-          if (todo.id !== payload.id) return todo;
+          if (todo.id !== payload.item.id) return todo;
           return false;
         })
       };
@@ -28,10 +28,10 @@ export default function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         list: state.list.map(todo =>
-          todo.id === payload.id
+          todo.id === payload.item.id
             ? {
                 ...todo,
-                name: payload.name
+                name: payload.item.name
               }
             : todo
         )
@@ -41,7 +41,7 @@ export default function reducer(state = initialState, { type, payload }) {
       return {
         ...state,
         list: state.list.map(todo =>
-          todo.id === payload.id
+          todo.id === payload.item.id
             ? {
                 ...todo,
                 isComplete: !todo.isComplete

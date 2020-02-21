@@ -12,6 +12,7 @@ export const ItemName = ({ current }) => {
       const newItem = { ...current, name: target.value };
 
       const updated = editItem(newItem);
+      console.log(12, updated)
       dispatch(updated);
     }
   }
