@@ -1,19 +1,10 @@
-import React, {
-  useContext
-} from "react";
-import {
-  OrganiserContext
-} from "../context";
-import Future from "fluture/index.js";
+import React, { useContext } from "react";
+import { OrganiserContext } from "../context";
 
-import {
-  addItem
-} from "../actions/index";
+import { addItem } from "../actions/index";
 
 export default function Input() {
-  const {
-    dispatch
-  } = useContext(OrganiserContext);
+  const { dispatch } = useContext(OrganiserContext);
 
   function submitNewItem(e) {
     const target = e.target;
@@ -28,18 +19,16 @@ export default function Input() {
     }
   }
 
-  return ( <
-    div >
-    <
-    input className = "todo__input"
-    id = "inputTodo"
-    placeholder = "Add another task"
-    type = "text"
-    maxLength = "70"
-    onKeyDown = {
-      submitNewItem
-    }
-    /> < /
-    div >
+  return (
+    <div>
+      <input
+        className="todo__input"
+        id="inputTodo"
+        placeholder="Add another task"
+        type="text"
+        maxLength="70"
+        onKeyDown={submitNewItem}
+      />{" "}
+    </div>
   );
 }

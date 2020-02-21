@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
 import { OrganiserContext } from "../context";
 import PropTypes from "prop-types";
-import Future from "fluture/index.js";
 import { toggleItemComplete } from "../actions/index";
 
 export const CheckBox = ({ current }) => {
-  const { state, dispatch } = useContext(OrganiserContext);
-  const { list } = state;
+  const { dispatch } = useContext(OrganiserContext);
+  // const { list } = state;
   const { isComplete } = current;
 
   function toggleCompleteListItem() {
-      const toggled = toggleItemComplete(current);
-      dispatch(toggled);
+    const toggled = toggleItemComplete(current);
+    dispatch(toggled);
   }
 
   return (

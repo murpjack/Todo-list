@@ -1,20 +1,19 @@
 import React, { useContext } from "react";
 import { OrganiserContext } from "../context";
 import PropTypes from "prop-types";
-import Future from "fluture/index.js";
 import { removeItem } from "../actions/index";
 
 export const ButtonRemoveItem = ({ current }) => {
   const { dispatch } = useContext(OrganiserContext);
 
   const removeItemClick = () => {
-      // const removeCurrent = removeItem(current);
-      // dispatch(removeCurrent);
+    const removeCurrent = removeItem(current);
+    dispatch(removeCurrent);
   };
 
   return (
     <button
-    type="button"
+      type="button"
       className="item__button item__button--remove"
       onClick={removeItemClick}
     >

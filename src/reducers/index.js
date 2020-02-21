@@ -7,12 +7,8 @@ import {
 
 import initialState from "../initialState";
 
-export default function reducer(state = initialState, {
-  type,
-  payload
-}) {
+export default function reducer(state = initialState, { type, payload }) {
   switch (type) {
-
     case ADD_ITEM:
       return {
         ...state,
@@ -20,19 +16,24 @@ export default function reducer(state = initialState, {
       };
 
     case REMOVE_ITEM:
-      const list = state.list.filter(todo => todo.id !== payload.id);
       return {
-        ...state, list
+        ...state,
+        list: state.list.filter(todo => {
+          if (todo.id !== payload.id) return todo;
+          return false;
+        })
       };
 
     case EDIT_ITEM:
       return {
         ...state,
         list: state.list.map(todo =>
-          todo.id === payload.id ? {
-            ...todo,
-            name: payload.name
-          } : todo
+          todo.id === payload.id
+            ? {
+                ...todo,
+                name: payload.name
+              }
+            : todo
         )
       };
 
@@ -40,10 +41,12 @@ export default function reducer(state = initialState, {
       return {
         ...state,
         list: state.list.map(todo =>
-          todo.id === payload.id ? {
-            ...todo,
-            isComplete: !todo.isComplete
-          } : todo
+          todo.id === payload.id
+            ? {
+                ...todo,
+                isComplete: !todo.isComplete
+              }
+            : todo
         )
       };
 

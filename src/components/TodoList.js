@@ -13,13 +13,20 @@ export default function TodoList() {
       console.log(index);
       if (index === 0) {
         return (
-          acc + `[{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}},`
+          acc +
+          `[{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}},`
         );
       } else if (index === list.length - 1) {
-        return acc + `{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}}]`;
+        return (
+          acc +
+          `{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}}]`
+        );
       } else {
         // separate list objects with a comma
-        return acc + `{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}},`;
+        return (
+          acc +
+          `{"id":${curr.id},"name":"${curr.name}","isComplete":${curr.isComplete}},`
+        );
       }
     }, "");
 
@@ -32,9 +39,5 @@ export default function TodoList() {
     <TodoItem key={idx} id={idx} item={todo} />
   ));
 
-  return (
-    <ul className="todo__list">
-      {listItems}
-    </ul>
-  );
+  return <ul className="todo__list">{listItems}</ul>;
 }

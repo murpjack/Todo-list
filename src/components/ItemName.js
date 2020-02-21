@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import { OrganiserContext } from "../context";
 import PropTypes from "prop-types";
-import Future from "fluture/index.js";
 
 import { editItem } from "../actions/index";
 export const ItemName = ({ current }) => {
-  const { state, dispatch } = useContext(OrganiserContext);
-  const { list } = state;
+  const { dispatch } = useContext(OrganiserContext);
 
   function updateListItemName(e) {
     const target = e.target;
@@ -20,7 +18,7 @@ export const ItemName = ({ current }) => {
 
   return (
     <input
-    className="item__name"
+      className="item__name"
       id="inputTodo"
       defaultValue={current.name}
       type="text"
