@@ -12,6 +12,7 @@ export default function Input() {
     if (name.length > 0) {
       if (e.key === "Enter" || e.which === 13) {
         const added = addItem(name);
+        console.log(12, added.payload);
         dispatch(added);
         // reset input value
         target.value = "";
@@ -23,7 +24,6 @@ export default function Input() {
     <div>
       <input
         className="todo__input"
-        id="inputTodo"
         placeholder="+ Add another task"
         type="text"
         maxLength="70"

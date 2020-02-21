@@ -5,16 +5,18 @@ import {
   TOGGLE_ITEM_COMPLETE
 } from "./constants";
 
-let todoIndex = 3;
+let todoIndex = 2;
 export const addItem = name => ({
   type: ADD_ITEM,
-  payload: { item: {id: todoIndex++, name, isComplete: false } }
+  payload: { item: {id: todoIndex += 1, name, isComplete: false } }
 });
 
-export const removeItem = item => ({
+export const removeItem = list => {
+  console.log(34,list);
+  return {
   type: REMOVE_ITEM,
-  payload: { item }
-});
+  payload: { list }
+}};
 
 export const editItem = item => ({
   type: EDIT_ITEM,
